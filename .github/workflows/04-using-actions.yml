@@ -17,7 +17,7 @@ jobs:
           run: |
             ls -la
             pwd
-            ls -la 04-using-actions/react-app
+#            ls -la 04-using-actions/react-app
 
 
         - name: Setup Node.js Environment
