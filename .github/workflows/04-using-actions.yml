@@ -14,7 +14,8 @@ jobs:
           run: |
             ls -la
             pwd
-            
+            ls -la 04-using-actions || true
+
 
         - name: Setup Node.js Environment
           uses: actions/setup-node@v3
