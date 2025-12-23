@@ -11,7 +11,10 @@ jobs:
           uses: actions/checkout@v4
 
         - name: Printing Folder Structure
-          run: ls -la
+          run: |
+            ls -la
+            pwd
+            
 
         - name: Setup Node.js Environment
           uses: actions/setup-node@v3
