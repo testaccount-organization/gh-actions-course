@@ -1,0 +1,20 @@
+name: 04- using Actions
+
+on:
+  - push
+
+jobs:
+    use-actions:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+        - name: Printing Folder Structure
+          run: ls -la
+
+        - name: Install Dependencies
+          run: npm install
+
+        - name: Run Tests
+          run: npm test
