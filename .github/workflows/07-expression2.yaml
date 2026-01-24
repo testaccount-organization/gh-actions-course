@@ -1,5 +1,5 @@
 name: 07 - Expressions
-run-name: 07 - using Expressions | Debug - ${{ (github.event_name == 'workflow_dispatch' && inputs.debug) && 'ON' || 'OFF' }}
+run-name: 07 - using Expressions | DEBUG - ${{ inputs.debug && 'ON' || 'OFF' }}
 
 on:
   push:
