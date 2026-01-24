@@ -1,4 +1,5 @@
 name: 07 - Expressions
+run-name: 07 - using Expressions | Debug - <'ON' if ${{ inputs.debug }} == true else 'OFF'>
 on:
   push:
   workflow_dispatch:
@@ -12,7 +13,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: "[debug] print start-up data"
-              if: inputs.debug == true
+              if: ${{ inputs.debug }}
               run: |
                 echo "Triggered by: ${{ github.event_name }} event"
                 echo "Branch: ${{ github.branch }}"
@@ -20,7 +21,7 @@ jobs:
                 echo "Runner OS: ${{ runner.os }}"
 
             - name: "[debug] print when triggered from main"
-              if: inputs.debug == true && github.ref == 'refs/heads/main'
+              if: ${{ inputs.debug  && github.ref == 'refs/heads/main' }}
               run: |
                 echo "I was triggered from the main branch."
 
