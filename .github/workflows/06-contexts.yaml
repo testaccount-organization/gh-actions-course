@@ -1,8 +1,9 @@
 name: 06-Contexts
-run-name: 06 - Contexts | Debug - ${{ inputs.debug }}
+#run-name: 06 - Contexts | Debug - ${{ inputs.debug }}
+run-name: 06 - Contexts | Debug - ${{ github.event_name == 'workflow_dispatch' && inputs.debug || 'N/A' }}
 
 on:
-#  push:
+  push:
   workflow_dispatch:
     inputs:
       debug:
