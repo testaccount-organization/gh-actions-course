@@ -6,13 +6,12 @@ jobs:
     echo1:
       runs-on: ubuntu-latest
       steps:
+        - name: Sleep for 20 seconds
+          run: sleep 20    
         - name: Failing Step
           run: |
             echo "This step will fail to demonstrate the use of functions."
             exit 1
-          
-        - name: Sleep for 20 seconds
-          run: sleep 20    
         - name: I will be skipped
           if: ${{ success() }}
           run : echo "I will print if previous steps succeed"
