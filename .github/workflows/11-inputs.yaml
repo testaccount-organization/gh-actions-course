@@ -4,23 +4,25 @@ on:
     inputs:
         dry-run:
           description: 'Skip deployment and only print build output'
+          # type can be string, boolean, choice, or environment
+          type: boolean
           required: false
-          default: 'true'
+          default: true
 
         target:
-          description: 'Deployment target environment'
+          description: 'Which env the workflow will target'
           required: true
-          default: 'staging'
-          type: choice
-          options:
-            - staging
-            - production
+#          default: 'staging'
+          type: environment
+        #   options:
+        #      - staging
+        #      - production
 
         tag:
           description: 'Release from which to build and deploy'
           required: false
           type: choice
-          default: 'v3'
+          default: v3
           options:
             - v1
             - v2
@@ -34,6 +36,11 @@ jobs:
         run: |
           echo "Building the project from tag: ${{ inputs.tag }}"
 
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ !inputs.dry-run }}
+    environment: ${{ inputs.target}}
+    steps:
       - name: Deploy
         if: ${{ success() }}
         run: |
