@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
         dry-run:
-          description: 'Skip deployment and only print build output
+          description: 'Skip deployment and only print build output'
           required: false
           default: 'true'
 
