@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      build_status: ${{ steps.build.outputs.status }}
     steps:
       - name: Print GITHUB_OUTPUT Path
         id: build_step
@@ -21,14 +23,16 @@ jobs:
       - name: Build
         id: build
         run: |
-          if [ "${{ inputs.build-status }}" == "success" ]; then
-            echo "build_status=success" >> $GITHUB_OUTPUT
-            echo "Build succeeded."
-          else
-            echo "build_status=failure" >> $GITHUB_OUTPUT
-            echo "Build failed."
-            exit 1
-          fi
+            echo "status=success" >> $GITHUB_OUTPUT
+        #   if [ "${{ inputs.build-status }}" == "success" ]; then
+        #     echo "build_status=success" >> $GITHUB_OUTPUT
+        #     echo "Build succeeded."
+        #   else
+        #     echo "build_status=failure" >> $GITHUB_OUTPUT
+        #     echo "Build failed."
+        #     exit 1
+        #   fi
+          
 
   deploy:
     runs-on: ubuntu-latest
