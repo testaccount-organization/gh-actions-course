@@ -1,4 +1,4 @@
-name: 18.1 - Reusable Workflows
+name: 18.1-Reusable Workflows
 on:
     workflow_call:
         inputs:
