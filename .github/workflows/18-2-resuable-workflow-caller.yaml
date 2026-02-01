@@ -4,7 +4,7 @@ on:
 
 jobs:
     deploy:
-        uses: ./.github/workflows/18-ResuableWorkflows.yaml
+        uses: ./.github/workflows/18-1-ResuableWorkflows.yaml
         with:
             target-directory: dummy-dir
     outputs:
